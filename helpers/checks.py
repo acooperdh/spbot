@@ -8,7 +8,6 @@ Version: 4.1
 
 import json
 from typing import TypeVar, Callable
-import disnake as dsn
 
 from disnake.ext import commands
 
