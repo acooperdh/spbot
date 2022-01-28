@@ -23,6 +23,7 @@ if not os.path.isfile("config.json"):
 else:
     with open("config.json") as file:
         config = json.load(file)
+client = MongoClient(config["mongo_url"])
 
 
 # Here we name the cog and create a new class for the cog.
@@ -49,16 +50,45 @@ class Picks(commands.Cog, name="picks-slash"):
                 required=True
             ),
             Option(
+                name="Entry",
+                description="gives the entry price for the pick you wish to make",
+                type=OptionType.number,
+                required=True
+            ),
+            Option(
                 name="price_target",
                 description="price target for position",
                 type=OptionType.number,
                 required=True
+            ),
+            Option(
+                name="risk",
+                description="mental stoploss",
+                type=OptionType.number,
+                required=True
+            ),
+            Option(
+                name="hold_time",
+                description="holding period",
+                type=OptionType.string, # string that hsould be converted to a number once inputted,
+                required=False
+            ),
+            Option(
+                name="mental_stoploss",
+                description="mental stoploss",
+                type=OptionType.number,
+                required=False
+            ),
+            Option(
+                name="actual_stoploss",
+                description="stoploss",
+                type=OptionType.number,
+                required=False
             )
         ]
     )
     # This will only allow non-blacklisted members to execute the command
-    @checks.not_blacklisted()
-    async def setpick(self, interaction: ApplicationCommandInteraction, type: str, ticker: str, price_target: float):
+    async def setpick(self, interaction: ApplicationCommandInteraction, type: str, ticker: str, entry: float, price_target: float, risk: float, hold_time: str = "", mental_stoploss: float = 0.0, actual_stoploss: float = 0.0):
         """
         This command does it all
         Note: This is a SLASH command
@@ -73,8 +103,8 @@ class Picks(commands.Cog, name="picks-slash"):
         print(price_target)
         # Do your stuff here
         embed = disnake.Embed(
-            title="Pick Selected",
-            description="You have selected the pick command",
+            title=f"{type} {ticker} @ {entry}",
+            description=f"{type} {ticker} @ {entry} \n PT: {price_target} \n Risk: {risk*100}%\n Hold Time: {hold_time} \n{mental_stoploss} \n{actual_stoploss}",
             color=0x00ff00
         )
         await interaction.send(embed=embed)
