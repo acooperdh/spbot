@@ -71,6 +71,9 @@ async def on_ready() -> None:
     print(f"Python version: {platform.python_version()}")
     print(f"Running on: {platform.system()} {platform.release()} ({os.name})")
     print("-------------------")
+    curr_guild = bot.guilds
+    for role in curr_guild[0].roles: 
+        print(f"name: {role.name} id: {role.id}")
     status_task.start()
 
 
