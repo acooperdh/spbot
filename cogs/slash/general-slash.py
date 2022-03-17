@@ -34,7 +34,6 @@ class General(commands.Cog, name="general-slash"):
         name="botinfo",
         description="Get some useful (or not) information about the bot.",
     )
-    @checks.not_blacklisted()
     async def botinfo(self, interaction: ApplicationCommandInteraction) -> None:
         """
         Get some useful (or not) information about the bot.
@@ -71,7 +70,6 @@ class General(commands.Cog, name="general-slash"):
         name="serverinfo",
         description="Get some useful (or not) information about the server.",
     )
-    @checks.not_blacklisted()
     async def serverinfo(self, interaction: ApplicationCommandInteraction) -> None:
         """
         Get some useful (or not) information about the server.
@@ -116,7 +114,6 @@ class General(commands.Cog, name="general-slash"):
         name="ping",
         description="Check if the bot is alive.",
     )
-    @checks.not_blacklisted()
     async def ping(self, interaction: ApplicationCommandInteraction) -> None:
         """
         Check if the bot is alive.
@@ -133,7 +130,6 @@ class General(commands.Cog, name="general-slash"):
         name="invite",
         description="Get the invite link of the bot to be able to invite it.",
     )
-    @checks.not_blacklisted()
     async def invite(self, interaction: ApplicationCommandInteraction) -> None:
         """
         Get the invite link of the bot to be able to invite it.
@@ -154,7 +150,6 @@ class General(commands.Cog, name="general-slash"):
         name="server",
         description="Get the invite link of the discord server of the bot for some support.",
     )
-    @checks.not_blacklisted()
     async def server(self, interaction: ApplicationCommandInteraction) -> None:
         """
         Get the invite link of the discord server of the bot for some support.
@@ -183,7 +178,7 @@ class General(commands.Cog, name="general-slash"):
     #     ],
     # )
     # @checks.not_blacklisted()
-    # async def coin(self, interaction: ApplicationCommandInteraction, coin: str = None) -> None: 
+    # async def coin(self, interaction: ApplicationCommandInteraction, coin: str = None) -> None:
     #     """
     #     Get live price of any coin listed on CoinGecko
     #     :param interaction: The application command interaction.
@@ -195,13 +190,12 @@ class General(commands.Cog, name="general-slash"):
         name="eth",
         description="Get live price of ethereum in either usd or cad.",
     )
-    @checks.not_blacklisted()
     async def eth(self, interaction: ApplicationCommandInteraction) -> None:
         """
         Get live price of ethereum in either usd or cad.
         :param interaction: The application command interaction.
         """
-        # stops bot from stopping everything while waiting on a https request 
+        # stops bot from stopping everything while waiting on a https request
         async with aiohttp.ClientSession() as session:
             async with session.get("https://api.coingecko.com/api/v3/coins/ethereum") as request:
                 if request.status == 200:
@@ -222,6 +216,7 @@ class General(commands.Cog, name="general-slash"):
                         color=0xE02B2B
                     )
                 await interaction.send(embed=embed)
+
     @commands.slash_command(
         name="8ball",
         description="Ask any question to the bot.",
@@ -234,7 +229,6 @@ class General(commands.Cog, name="general-slash"):
             )
         ],
     )
-    @checks.not_blacklisted()
     async def eight_ball(self, interaction: ApplicationCommandInteraction, question: str) -> None:
         """
         Ask any question to the bot.
@@ -260,7 +254,6 @@ class General(commands.Cog, name="general-slash"):
         name="bitcoin",
         description="Get the current price of bitcoin.",
     )
-    @checks.not_blacklisted()
     async def bitcoin(self, interaction: ApplicationCommandInteraction) -> None:
         """
         Get the current price of bitcoin.

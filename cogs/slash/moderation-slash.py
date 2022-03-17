@@ -46,7 +46,6 @@ class Moderation(commands.Cog, name="moderation-slash"):
         ]
     )
     @commands.has_permissions(kick_members=True)
-    @checks.not_blacklisted()
     async def kick(self, interaction: ApplicationCommandInteraction, user: disnake.User,
                    reason: str = "Not specified") -> None:
         """
@@ -110,7 +109,6 @@ class Moderation(commands.Cog, name="moderation-slash"):
         ],
     )
     @commands.has_permissions(manage_nicknames=True)
-    @checks.not_blacklisted()
     async def nick(self, interaction: ApplicationCommandInteraction, user: disnake.User, nickname: str = None) -> None:
         """
         Change the nickname of a user on a server.
@@ -154,7 +152,6 @@ class Moderation(commands.Cog, name="moderation-slash"):
         ],
     )
     @commands.has_permissions(ban_members=True)
-    @checks.not_blacklisted()
     async def ban(self, interaction: ApplicationCommandInteraction, user: disnake.User,
                   reason: str = "Not specified") -> None:
         """
@@ -216,7 +213,6 @@ class Moderation(commands.Cog, name="moderation-slash"):
         ],
     )
     @commands.has_permissions(manage_messages=True)
-    @checks.not_blacklisted()
     async def warn(self, interaction: ApplicationCommandInteraction, user: disnake.User,
                    reason: str = "Not specified") -> None:
         """
@@ -257,7 +253,6 @@ class Moderation(commands.Cog, name="moderation-slash"):
         ],
     )
     @commands.has_guild_permissions(manage_messages=True)
-    @checks.not_blacklisted()
     async def purge(self, interaction: ApplicationCommandInteraction, amount: int) -> None:
         """
         Delete a number of messages.
@@ -292,7 +287,6 @@ class Moderation(commands.Cog, name="moderation-slash"):
         ]
     )
     @commands.has_permissions(ban_members=True)
-    @checks.not_blacklisted()
     async def hackban(self, interaction: ApplicationCommandInteraction, user_id: str,
                       reason: str = "Not specified") -> None:
         """

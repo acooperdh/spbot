@@ -1,0 +1,35 @@
+Loaded extension 'fun-slash'
+Loaded extension 'general-slash'
+Loaded extension 'moderation-slash'
+Loaded extension 'owner-slash'
+Failed to load extension picks-slash
+ExtensionFailed: Extension 'cogs.slash.picks-slash' raised an error: KeyError: 'mongo_url'
+Loaded extension 'template-slash'
+Loaded extension 'fun-normal'
+Loaded extension 'general-normal'
+Loaded extension 'moderation-normal'
+Loaded extension 'owner-normal'
+Loaded extension 'role-normal'
+Loaded extension 'template-normal'
+Logged in as testing-botv2
+disnake API version: 2.4.0
+Python version: 3.9.2
+Running on: Windows 10 (nt)
+-------------------
+name: @everyone id: 909632077039829052
+name: testing-botv2 id: 936354313914163281
+name: Zapier id: 927981402287394919
+name: Invite Tracker id: 927285921768964190
+name: StockBot id: 925131116992675944
+name: Statbot id: 912352078251319376
+name: Trial id: 910223877840470057
+name: Free Member id: 910223841224163419
+name: All Markets Trader id: 910223740724469810
+name: Stonks Trader id: 910223710680674335
+name: Crypto Trader id: 910223643974451241
+name: Admin id: 910223605265231934
+name: Analyst id: 910223506904608829
+name: Shot Caller id: 910223153509322753
+name: SimplePicks id: 910221946065657887
+Executed roles command in SimplePicks 2.0 (ID: 909632077039829052) by brewsnoop#7016 (ID: 479775681346142219)
+Executed shutdown command in SimplePicks 2.0 (ID: 909632077039829052) by brewsnoop#7016 (ID: 479775681346142219)
