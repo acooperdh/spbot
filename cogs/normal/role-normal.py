@@ -13,6 +13,7 @@ import sys
 
 import aiohttp
 import disnake
+from dotenv import load_dotenv
 from disnake.ext import commands
 from disnake.ext.commands import Context
 from disnake.abc import Snowflake
@@ -24,6 +25,13 @@ if not os.path.isfile("config.json"):
 else:
     with open("config.json") as file:
         config = json.load(file)
+load_dotenv('../../.env')
+
+forex = os.getenv('FOREX_ROLE')
+lt = os.getenv('LONG_TERM_ROLE')
+crypto = os.getenv('CRYPTO_ROLE')
+stock = os.getenv('STOCK_ROLE')
+diamond = os.getenv('DIAMOND_ROLE')
 
 
 class Choice(disnake.ui.View):
@@ -41,7 +49,7 @@ class Choice(disnake.ui.View):
         self.choice = button.label.lower()
         self.stop()
 
-    @disnake.ui.button(label="Crypto", style=disnake.ButtonStyle.blurpe)
+    @disnake.ui.button(label="Crypto", style=disnake.ButtonStyle.blurple)
     async def cancel(self, button: disnake.ui.Button, interaction: disnake.MessageInteraction):
         self.choice = button.label.lower()
         self.stop()
@@ -52,24 +60,24 @@ class RoleSelect(disnake.ui.Select):
 
         options = [
             disnake.SelectOption(
-                label="Forex", description="Silver Picks - Forex Plan", emoji="💹", value=config["forex_role"]
+                label="Forex", description="Silver Picks - Forex Plan", emoji="💹", value=forex
             ),
             disnake.SelectOption(
-                label="Long Term", description="Silver Picks - Long Term Plan", emoji="📆", value=config["long_term_role"]
+                label="Long Term", description="Silver Picks - Long Term Plan", emoji="📆", value=lt
             ),
             disnake.SelectOption(
-                label="Crypto", description="Gold Picks - Crypto Plan", emoji="👛", value=config["crypto_role"]
+                label="Crypto", description="Gold Picks - Crypto Plan", emoji="👛", value=crypto
             ),
             disnake.SelectOption(
-                label="Equities", description="Gold Picks - Stocks Plan", emoji="📈", value=config["stock_role"]
+                label="Equities", description="Gold Picks - Stocks Plan", emoji="📈", value=stock
             ),
             disnake.SelectOption(
-                label="Diamond", description="Diamond Picks", emoji="💎", value=config["diamond_role"]
+                label="Diamond", description="Diamond Picks", emoji="💎", value=diamond
             )
         ]
 
         super().__init__(
-            placeholder="Choose...",
+            placeholder="Choose your plan!",
             min_values=1,
             max_values=1,
             options=options,

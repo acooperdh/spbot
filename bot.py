@@ -11,8 +11,9 @@ import os
 import platform
 import random
 import sys
-
 import disnake
+
+from dotenv import load_dotenv
 from disnake import ApplicationCommandInteraction
 from disnake.ext import tasks, commands
 from disnake.ext.commands import Bot
@@ -25,7 +26,7 @@ if not os.path.isfile("config.json"):
 else:
     with open("config.json") as file:
         config = json.load(file)
-
+load_dotenv('.env')
 """	
 Setup bot intents (events restrictions)
 For more information about intents, please go to the following websites:
@@ -72,7 +73,7 @@ async def on_ready() -> None:
     print(f"Running on: {platform.system()} {platform.release()} ({os.name})")
     print("-------------------")
     curr_guild = bot.guilds
-    for role in curr_guild[0].roles: 
+    for role in curr_guild[0].roles:
         print(f"name: {role.name} id: {role.id}")
     status_task.start()
 
@@ -105,7 +106,7 @@ def load_commands(command_type: str) -> None:
 if __name__ == "__main__":
     """
     This will automatically load slash commands and normal commands located in their respective folder.
-    
+
     If you want to remove slash commands, which is not recommended due to the Message Intent being a privileged intent, you can remove the loading of slash commands below.
     """
     load_commands("slash")
@@ -144,7 +145,7 @@ async def on_slash_command_error(interaction: ApplicationCommandInteraction, err
         """
         The code here will only execute if the error is an instance of 'UserBlacklisted', which can occur when using
         the @checks.is_owner() check in your command, or you can raise the error by yourself.
-        
+
         'hidden=True' will make so that only the user who execute the command can see the message
         """
         embed = disnake.Embed(
@@ -216,4 +217,5 @@ async def on_command_error(context: Context, error) -> None:
 
 
 # Run the bot with the token
-bot.run(config["token"])
+token = os.getenv('DISCORD_TOKEN')
+bot.run(token)

@@ -11,6 +11,9 @@ import os
 import sys
 import disnake
 
+
+from dotenv import load_dotenv
+from pathlib import Path
 from disnake import ApplicationCommandInteraction, OptionType, Option
 from disnake.ext import commands
 import pymongo
@@ -23,10 +26,16 @@ if not os.path.isfile("config.json"):
 else:
     with open("config.json") as file:
         config = json.load(file)
-client = MongoClient(config["mongo_url"])
 
+dotenv_path = Path('../../.env')
+load_dotenv(dotenv_path)
+
+
+client = MongoClient(os.getenv("MONGO_URI"))
 
 # Here we name the cog and create a new class for the cog.
+
+
 class Picks(commands.Cog, name="picks-slash"):
     def __init__(self, bot):
         self.bot = bot
@@ -70,7 +79,7 @@ class Picks(commands.Cog, name="picks-slash"):
             Option(
                 name="hold_time",
                 description="holding period",
-                type=OptionType.string, # string that hsould be converted to a number once inputted,
+                type=OptionType.string,  # string that hsould be converted to a number once inputted,
                 required=False
             ),
             Option(
@@ -111,7 +120,7 @@ class Picks(commands.Cog, name="picks-slash"):
         # Don't forget to remove "pass", that's just because there's no content in the method.
         pass
 
-    
+
 # And then we finally add the cog to the bot so that it can load, unload, reload and use it's content.
 def setup(bot):
     bot.add_cog(Picks(bot))

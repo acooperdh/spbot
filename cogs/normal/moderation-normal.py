@@ -80,7 +80,6 @@ class Moderation(commands.Cog, name="moderation-normal"):
         description="Change the nickname of a user on a server.",
     )
     @commands.has_permissions(manage_nicknames=True)
-    @checks.not_blacklisted()
     async def nick(self, context: Context, member: disnake.Member, *, nickname: str = None) -> None:
         """
         Change the nickname of a user on a server.
@@ -109,7 +108,6 @@ class Moderation(commands.Cog, name="moderation-normal"):
         description="Bans a user from the server.",
     )
     @commands.has_permissions(ban_members=True)
-    @checks.not_blacklisted()
     async def ban(self, context: Context, member: disnake.Member, *, reason: str = "Not specified") -> None:
         """
         Bans a user from the server.
@@ -155,7 +153,6 @@ class Moderation(commands.Cog, name="moderation-normal"):
         description="Warns a user in the server.",
     )
     @commands.has_permissions(manage_messages=True)
-    @checks.not_blacklisted()
     async def warn(self, context: Context, member: disnake.Member, *, reason: str = "Not specified") -> None:
         """
         Warns a user in his private messages.
@@ -184,7 +181,6 @@ class Moderation(commands.Cog, name="moderation-normal"):
         description="Delete a number of messages.",
     )
     @commands.has_guild_permissions(manage_messages=True)
-    @checks.not_blacklisted()
     async def purge(self, context: Context, amount: int) -> None:
         """
         Delete a number of messages.

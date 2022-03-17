@@ -34,7 +34,6 @@ class General(commands.Cog, name="general-normal"):
         name="botinfo",
         description="Get some useful (or not) information about the bot.",
     )
-    @checks.not_blacklisted()
     async def botinfo(self, context: Context) -> None:
         """
         Get some useful (or not) information about the bot.
@@ -71,7 +70,6 @@ class General(commands.Cog, name="general-normal"):
         name="serverinfo",
         description="Get some useful (or not) information about the server.",
     )
-    @checks.not_blacklisted()
     async def serverinfo(self, context: Context) -> None:
         """
         Get some useful (or not) information about the server.
@@ -116,7 +114,6 @@ class General(commands.Cog, name="general-normal"):
         name="ping",
         description="Check if the bot is alive.",
     )
-    @checks.not_blacklisted()
     async def ping(self, context: Context) -> None:
         """
         Check if the bot is alive.
@@ -133,7 +130,6 @@ class General(commands.Cog, name="general-normal"):
         name="invite",
         description="Get the invite link of the bot to be able to invite it.",
     )
-    @checks.not_blacklisted()
     async def invite(self, context: Context) -> None:
         """
         Get the invite link of the bot to be able to invite it.
@@ -154,7 +150,6 @@ class General(commands.Cog, name="general-normal"):
         name="server",
         description="Get the invite link of the discord server of the bot for some support.",
     )
-    @checks.not_blacklisted()
     async def server(self, context: Context) -> None:
         """
         Get the invite link of the discord server of the bot for some support.
@@ -174,7 +169,6 @@ class General(commands.Cog, name="general-normal"):
         name="8ball",
         description="Ask any question to the bot.",
     )
-    @checks.not_blacklisted()
     async def eight_ball(self, context: Context, *, question: str) -> None:
         """
         Ask any question to the bot.
@@ -200,7 +194,6 @@ class General(commands.Cog, name="general-normal"):
         name="bitcoin",
         description="Get the current price of bitcoin.",
     )
-    @checks.not_blacklisted()
     async def bitcoin(self, context: Context) -> None:
         """
         Get the current price of bitcoin.

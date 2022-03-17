@@ -76,7 +76,8 @@ class RockPaperScissors(disnake.ui.Select):
         bot_choice_index = choices[bot_choice]
 
         result_embed = disnake.Embed(color=0x9C84EF)
-        result_embed.set_author(name=interaction.author.display_name, icon_url=interaction.author.avatar.url)
+        result_embed.set_author(
+            name=interaction.author.display_name, icon_url=interaction.author.avatar.url)
 
         if user_choice_index == bot_choice_index:
             result_embed.description = f"**That's a draw!**\nYou've chosen {user_choice} and I've chosen {bot_choice}."
@@ -112,7 +113,6 @@ class Fun(commands.Cog, name="fun-slash"):
         name="randomfact",
         description="Get a random fact."
     )
-    @checks.not_blacklisted()
     async def randomfact(self, interaction: ApplicationCommandInteraction) -> None:
         """
         Get a random fact.
@@ -139,7 +139,6 @@ class Fun(commands.Cog, name="fun-slash"):
         name="coinflip",
         description="Make a coin flip, but give your bet before."
     )
-    @checks.not_blacklisted()
     async def coinflip(self, interaction: ApplicationCommandInteraction) -> None:
         """
         Make a coin flip, but give your bet before.
@@ -170,7 +169,6 @@ class Fun(commands.Cog, name="fun-slash"):
         name="rps",
         description="Play the rock paper scissors game against the bot."
     )
-    @checks.not_blacklisted()
     async def rock_paper_scissors(self, interaction: ApplicationCommandInteraction) -> None:
         """
         Play the rock paper scissors game against the bot.
