@@ -41,10 +41,12 @@ class Template(commands.Cog, name="template-normal"):
         """
         # Do your stuff here
 
-        # Don't forget to remove "pass", that's just because there's no content in the method.
+        # Don't forget to remove "pass", that's just because there's no content
+        # in the method.
         pass
 
 
-# And then we finally add the cog to the bot so that it can load, unload, reload and use it's content.
+# And then we finally add the cog to the bot so that it can load, unload,
+# reload and use it's content.
 def setup(bot):
     bot.add_cog(Template(bot))

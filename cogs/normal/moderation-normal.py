@@ -64,10 +64,11 @@ class Moderation(commands.Cog, name="moderation-normal"):
                         f"You were kicked by **{context.author}**!\nReason: {reason}"
                     )
                 except disnake.Forbidden:
-                    # Couldn't send a message in the private messages of the user
+                    # Couldn't send a message in the private messages of the
+                    # user
                     pass
                 await member.kick(reason=reason)
-            except:
+            except BaseException:
                 embed = disnake.Embed(
                     title="Error!",
                     description="An error occurred while trying to kick the user. Make sure my role is above the role of the user you want to kick.",
@@ -95,7 +96,7 @@ class Moderation(commands.Cog, name="moderation-normal"):
                 color=0x9C84EF
             )
             await context.send(embed=embed)
-        except:
+        except BaseException:
             embed = disnake.Embed(
                 title="Error!",
                 description="An error occurred while trying to change the nickname of the user. Make sure my role is above the role of the user you want to change the nickname.",
@@ -137,10 +138,11 @@ class Moderation(commands.Cog, name="moderation-normal"):
                 try:
                     await member.send(f"You were banned by **{context.author}**!\nReason: {reason}")
                 except disnake.Forbidden:
-                    # Couldn't send a message in the private messages of the user
+                    # Couldn't send a message in the private messages of the
+                    # user
                     pass
                 await member.ban(reason=reason)
-        except:
+        except BaseException:
             embed = disnake.Embed(
                 title="Error!",
                 description="An error occurred while trying to ban the user. Make sure my role is above the role of the user you want to ban.",
@@ -189,7 +191,7 @@ class Moderation(commands.Cog, name="moderation-normal"):
         """
         try:
             amount = int(amount)
-        except:
+        except BaseException:
             embed = disnake.Embed(
                 title="Error!",
                 description=f"`{amount}` is not a valid number.",
@@ -237,7 +239,7 @@ class Moderation(commands.Cog, name="moderation-normal"):
                 value=reason
             )
             await context.send(embed=embed)
-        except:
+        except BaseException:
             embed = disnake.Embed(
                 title="Error!",
                 description="An error occurred while trying to ban the user. Make sure ID is an existing ID that belongs to a user.",

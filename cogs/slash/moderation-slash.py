@@ -79,10 +79,11 @@ class Moderation(commands.Cog, name="moderation-slash"):
                         f"You were kicked by **{interaction.author}**!\nReason: {reason}"
                     )
                 except disnake.Forbidden:
-                    # Couldn't send a message in the private messages of the user
+                    # Couldn't send a message in the private messages of the
+                    # user
                     pass
                 await member.kick(reason=reason)
-            except:
+            except BaseException:
                 embed = disnake.Embed(
                     title="Error!",
                     description="An error occurred while trying to kick the user. Make sure my role is above the role of the user you want to kick.",
@@ -125,7 +126,7 @@ class Moderation(commands.Cog, name="moderation-slash"):
                 color=0x9C84EF
             )
             await interaction.send(embed=embed)
-        except:
+        except BaseException:
             embed = disnake.Embed(
                 title="Error!",
                 description="An error occurred while trying to change the nickname of the user. Make sure my role is above the role of the user you want to change the nickname.",
@@ -183,10 +184,11 @@ class Moderation(commands.Cog, name="moderation-slash"):
                 try:
                     await member.send(f"You were banned by **{interaction.author}**!\nReason: {reason}")
                 except disnake.Forbidden:
-                    # Couldn't send a message in the private messages of the user
+                    # Couldn't send a message in the private messages of the
+                    # user
                     pass
                 await member.ban(reason=reason)
-        except:
+        except BaseException:
             embed = disnake.Embed(
                 title="Error!",
                 description="An error occurred while trying to ban the user. Make sure my role is above the role of the user you want to ban.",

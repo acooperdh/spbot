@@ -27,7 +27,7 @@ else:
     with open("config.json") as file:
         config = json.load(file)
 load_dotenv('.env')
-"""	
+"""
 Setup bot intents (events restrictions)
 For more information about intents, please go to the following websites:
 https://docs.disnake.dev/en/latest/intents.html
@@ -87,7 +87,8 @@ async def status_task() -> None:
     await bot.change_presence(activity=disnake.Game(random.choice(statuses)))
 
 
-# Removes the default help command of discord.py to be able to create our custom help command.
+# Removes the default help command of discord.py to be able to create our
+# custom help command.
 bot.remove_command("help")
 
 
@@ -209,7 +210,8 @@ async def on_command_error(context: Context, error) -> None:
         embed = disnake.Embed(
             title="Error!",
             description=str(error).capitalize(),
-            # We need to capitalize because the command arguments have no capital letter in the code.
+            # We need to capitalize because the command arguments have no
+            # capital letter in the code.
             color=0xE02B2B
         )
         await context.send(embed=embed)

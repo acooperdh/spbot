@@ -40,7 +40,8 @@ class Picks(commands.Cog, name="picks-slash"):
     def __init__(self, bot):
         self.bot = bot
 
-    # Here you can just add your own commands, you'll always need to provide "self" as first parameter.
+    # Here you can just add your own commands, you'll always need to provide
+    # "self" as first parameter.
     @commands.slash_command(
         name="setpick",
         description="Use this command to set a position",
@@ -117,10 +118,12 @@ class Picks(commands.Cog, name="picks-slash"):
             color=0x00ff00
         )
         await interaction.send(embed=embed)
-        # Don't forget to remove "pass", that's just because there's no content in the method.
+        # Don't forget to remove "pass", that's just because there's no content
+        # in the method.
         pass
 
 
-# And then we finally add the cog to the bot so that it can load, unload, reload and use it's content.
+# And then we finally add the cog to the bot so that it can load, unload,
+# reload and use it's content.
 def setup(bot):
     bot.add_cog(Picks(bot))

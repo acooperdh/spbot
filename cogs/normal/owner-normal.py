@@ -116,7 +116,7 @@ class Owner(commands.Cog, name="owner-normal"):
                 text=f"There are now {len(blacklist['ids'])} users in the blacklist"
             )
             await context.send(embed=embed)
-        except:
+        except BaseException:
             embed = disnake.Embed(
                 title="Error!",
                 description=f"An unknown error occurred when trying to add **{member.name}** to the blacklist.",
@@ -145,7 +145,7 @@ class Owner(commands.Cog, name="owner-normal"):
                 text=f"There are now {len(blacklist['ids'])} users in the blacklist"
             )
             await context.send(embed=embed)
-        except:
+        except BaseException:
             embed = disnake.Embed(
                 title="Error!",
                 description=f"**{member.name}** is not in the blacklist.",

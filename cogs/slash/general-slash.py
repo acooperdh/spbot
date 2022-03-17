@@ -140,7 +140,9 @@ class General(commands.Cog, name="general-slash"):
             color=0xD75BF4
         )
         try:
-            # To know what permissions to give to your bot, please see here: https://discordapi.com/permissions.html and remember to not give Administrator permissions.
+            # To know what permissions to give to your bot, please see here:
+            # https://discordapi.com/permissions.html and remember to not give
+            # Administrator permissions.
             await interaction.author.send(embed=embed)
             await interaction.send("I sent you a private message!")
         except disnake.Forbidden:
@@ -259,7 +261,9 @@ class General(commands.Cog, name="general-slash"):
         Get the current price of bitcoin.
         :param interaction: The application command interaction.
         """
-        # This will prevent your bot from stopping everything when doing a web request - see: https://discordpy.readthedocs.io/en/stable/faq.html#how-do-i-make-a-web-request
+        # This will prevent your bot from stopping everything when doing a web
+        # request - see:
+        # https://discordpy.readthedocs.io/en/stable/faq.html#how-do-i-make-a-web-request
         async with aiohttp.ClientSession() as session:
             async with session.get("https://api.coindesk.com/v1/bpi/currentprice/BTC.json") as request:
                 if request.status == 200:

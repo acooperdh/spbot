@@ -32,6 +32,7 @@ lt = os.getenv('LONG_TERM_ROLE')
 crypto = os.getenv('CRYPTO_ROLE')
 stock = os.getenv('STOCK_ROLE')
 diamond = os.getenv('DIAMOND_ROLE')
+mongo_uri = os.getenv('MONGO_URI')
 
 
 class Choice(disnake.ui.View):
@@ -84,7 +85,7 @@ class RoleSelect(disnake.ui.Select):
         )
 
     async def callback(self, interaction: disnake.MessageInteraction):
-        users = pm.MongoClient(config["mongo_uri"]).get_database(
+        users = pm.MongoClient(str(mongo_uri)).get_database(
             'SimplePicks').Users
         user_choice = self.values[0]
         result_embed = disnake.Embed(color=0x9C84EF)

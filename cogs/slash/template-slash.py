@@ -28,13 +28,15 @@ class Template(commands.Cog, name="template-slash"):
     def __init__(self, bot):
         self.bot = bot
 
-    # Here you can just add your own commands, you'll always need to provide "self" as first parameter.
+    # Here you can just add your own commands, you'll always need to provide
+    # "self" as first parameter.
     @commands.slash_command(
         name="callherdatay",
         description="This is a testing command that does nothing.",
     )
     # This will only allow non-blacklisted members to execute the command
-    # This will only allow owners of the bot to execute the command -> config.json
+    # This will only allow owners of the bot to execute the command ->
+    # config.json
     @checks.is_owner()
     async def testcommand(self, interaction: ApplicationCommandInteraction):
         """
@@ -44,10 +46,12 @@ class Template(commands.Cog, name="template-slash"):
         """
         # Do your stuff here
 
-        # Don't forget to remove "pass", that's just because there's no content in the method.
+        # Don't forget to remove "pass", that's just because there's no content
+        # in the method.
         pass
 
 
-# And then we finally add the cog to the bot so that it can load, unload, reload and use it's content.
+# And then we finally add the cog to the bot so that it can load, unload,
+# reload and use it's content.
 def setup(bot):
     bot.add_cog(Template(bot))
