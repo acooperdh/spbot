@@ -107,7 +107,7 @@ class RoleSelect(disnake.ui.Select):
             check_role = disnake.Object(int(user_choice))
             if interaction.author.get_role(int(user_choice)) is None:
                 await interaction.author.add_roles(check_role)
-            result_embed.description = f"hey {interaction.author} congrats! You have membership {user_collection_data}"
+            result_embed.description = f"Hey {interaction.author} congrats! You now have the proper roles!"
         await interaction.response.defer()
         await interaction.edit_original_message(embed=result_embed, content=None, view=None)
 
