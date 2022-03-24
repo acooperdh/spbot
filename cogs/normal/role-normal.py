@@ -90,7 +90,7 @@ class RoleSelect(disnake.ui.Select):
         user_choice = self.values[0]
         result_embed = disnake.Embed(color=0x9C84EF)
         result_embed.set_author(
-            name=interaction.author.display_name, icon_url=interaction.author.avatar.url)
+            name=interaction.author.display_name)
         # this is adding a trial role to the user
 
         # check user collection to determine if this user has a trial role

@@ -1,0 +1,46 @@
+Loaded extension 'fun-slash'
+Loaded extension 'general-slash'
+Loaded extension 'moderation-slash'
+Loaded extension 'owner-slash'
+Loaded extension 'picks-slash'
+Loaded extension 'template-slash'
+Loaded extension 'fun-normal'
+Loaded extension 'general-normal'
+Loaded extension 'moderation-normal'
+Loaded extension 'owner-normal'
+Loaded extension 'role-normal'
+Loaded extension 'template-normal'
+Failed to load extension test-normal
+NoEntryPointError: Extension 'cogs.normal.test-normal' has no 'setup' function.
+Logged in as SimplePicks
+disnake API version: 2.4.0
+Python version: 3.9.2
+Running on: Windows 10 (nt)
+-------------------
+name: @everyone id: 736026748906635276
+name: Zapier id: 952619897266008127
+name: Analyst id: 948741249710563340
+name: Forex Analyst id: 948741228055379998
+name: Crypto Analyst id: 948741197382438922
+name: Equities Analyst id: 948741161470795846
+name: Forex Trader id: 948741123323625512
+name: All Market Trader id: 948741086837350451
+name: Equities Trader id: 948741060664918118
+name: Long Term Investor id: 948741003500740618
+name: Crypto Trader id: 948740878736953404
+name: Staff - IT id: 931987348084891718
+name: Lead Admin id: 930161756892987403
+name: Analyst - Stocks/Options id: 925914586899693568
+name: Server Booster id: 925848239612260383
+name: Fin id: 882498304150237224
+name: Lead Analyst id: 806029219548364813
+name: StockBot id: 737148440731189309
+name: Moderator id: 737064049283694653
+name: Subscriber id: 737038482165334027
+name: Trialist id: 737038359490199573
+name: Shot Caller id: 737037992438399057
+name: MEE6 id: 737015889639112776
+--------------------
+name: social-media-posts id: 931985579216883823
+name: referral-links id: 948734048723951646
+name: Live-Trading/Education id: 736026749606953073

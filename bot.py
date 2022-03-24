@@ -20,6 +20,7 @@ from disnake.ext.commands import Bot
 from disnake.ext.commands import Context
 
 import exceptions
+import pymongo as pm
 
 if not os.path.isfile("config.json"):
     sys.exit("'config.json' not found! Please add it and try again.")
@@ -27,6 +28,14 @@ else:
     with open("config.json") as file:
         config = json.load(file)
 load_dotenv('.env')
+
+# global variables used for role assignment
+forex = os.getenv('FOREX_ROLE')
+lt = os.getenv('LONG_TERM_ROLE')
+crypto = os.getenv('CRYPTO_ROLE')
+stock = os.getenv('STOCK_ROLE')
+diamond = os.getenv('DIAMOND_ROLE')
+mongo_uri = os.getenv('MONGO_URI')
 """
 Setup bot intents (events restrictions)
 For more information about intents, please go to the following websites:
@@ -75,6 +84,26 @@ async def on_ready() -> None:
     curr_guild = bot.guilds
     for role in curr_guild[0].roles:
         print(f"name: {role.name} id: {role.id}")
+    print("--------------------")
+    channels = bot.guilds[0].channels
+    chnl = None
+    for channel in channels:
+        if channel.id == 953863639310417980:
+            chnl = channel
+        print(f"name: {channel.name} id: {channel.id}")
+    print("--------------------")
+    # this code is used to send the role message to the role channel,
+    # which is used to allow users to assign their own roles
+    print(f"Current channel: {chnl.name}")
+    # text = "React to this message with the proper emoji to get a role!" + \
+    #     "\n💎 - Diamond Picks \n\n" + "💰 - Gold Picks Crypto \n\n📈 - Gold Picks Stocks \n\n" + \
+    #     "💹 - Silver Picks Forex \n\n 📅 - Silver Picks Long Term \n"
+    # msg = await chnl.send(content=text)
+    # await msg.add_reaction("💎")
+    # await msg.add_reaction("💰")
+    # await msg.add_reaction("📈")
+    # await msg.add_reaction("💹")
+    # await msg.add_reaction("📅")
     status_task.start()
 
 
@@ -123,6 +152,67 @@ async def on_message(message: disnake.Message) -> None:
     if message.author == bot.user or message.author.bot:
         return
     await bot.process_commands(message)
+
+
+# on_reaction_add(reactionn: disnake.Reaction, user: disnake.User)
+# on_raw_reaction_add(payload: disnake.RawReactionActionEvent)
+
+async def remove_wrong_reaction(payload: disnake.RawReactionActionEvent) -> None:
+    """
+    This function is used to remove the wrong reaction that was added.
+    :param payload: The payload of the reaction that was added.
+    """
+    channel = bot.get_channel(payload.channel_id)
+    msg = await channel.fetch_message(payload.message_id)
+    await msg.remove_reaction(payload.emoji, payload.member)
+
+
+@bot.event
+async def on_raw_reaction_add(payload: disnake.RawReactionActionEvent) -> None:
+    if payload.message_id != 955966311450685520:
+        return
+    role_reaction = payload.emoji.name
+    user = payload.member
+    print(payload)
+    if payload.member.name == 'SimplePicks' and payload.member.discriminator == '4406':
+        return
+    if role_reaction == "💎":
+        print("Diamond selected by " + user.name)
+        role_value = diamond
+    elif role_reaction == "💰":
+        print("Crypto selected by " + user.name)
+        role_value = crypto
+    elif role_reaction == "📈":
+        print("Stock selected by " + user.name)
+        role_value = stock
+    else:
+        print("No role selected by " + user.name)
+        if payload.message_id == 955966311450685520:
+            await remove_wrong_reaction(payload)
+        return
+
+    users = pm.MongoClient(str(mongo_uri)).get_database("SimplePicks").Users
+    user_data = users.find_one(
+        {"discord_id": str(payload.member.name + "#" + payload.member.discriminator)})
+
+    if user_data is None:
+        print("user is not in the database, they need to sign up online")
+    else:
+        if user_data["discord_role"] == role_value:
+            print("user already has the role ... no need to add it")
+            await user.add_roles(disnake.Object(id=role_value))
+            await remove_wrong_reaction(payload)
+            print("role added")
+        else:
+            print("user is not supposed to have this role, they are supposed to have anothe role " +
+                  user_data["discord_id"])
+            channel = bot.get_channel(payload.channel_id)
+            print("channel on removing reaction role")
+            print(channel)
+            print("msg on removing reaction role")
+            msg = await channel.fetch_message(payload.message_id)
+            print(msg)
+            await remove_wrong_reaction(payload)
 
 
 @bot.event
