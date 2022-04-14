@@ -166,7 +166,8 @@ async def remove_wrong_reaction(payload: disnake.RawReactionActionEvent) -> None
     msg = await channel.fetch_message(payload.message_id)
     await msg.remove_reaction(payload.emoji, payload.member)
 
-
+# TODO: Move these events into their own class / file
+# makes more sense for code organization
 @bot.event
 async def on_raw_reaction_add(payload: disnake.RawReactionActionEvent) -> None:
     if payload.message_id != 955966311450685520:
