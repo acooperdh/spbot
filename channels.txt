@@ -1,46 +1,103 @@
-Loaded extension 'fun-slash'
-Loaded extension 'general-slash'
-Loaded extension 'moderation-slash'
-Loaded extension 'owner-slash'
-Loaded extension 'picks-slash'
-Loaded extension 'template-slash'
-Loaded extension 'fun-normal'
-Loaded extension 'general-normal'
-Loaded extension 'moderation-normal'
-Loaded extension 'owner-normal'
-Loaded extension 'role-normal'
-Loaded extension 'template-normal'
-Failed to load extension test-normal
-NoEntryPointError: Extension 'cogs.normal.test-normal' has no 'setup' function.
 Logged in as SimplePicks
 disnake API version: 2.4.0
 Python version: 3.9.2
 Running on: Windows 10 (nt)
 -------------------
 name: @everyone id: 736026748906635276
+name: ClickUp id: 977793722232242179
+name: Ethereum Ticker id: 976251307662921751
+name: Free Member id: 973929610389626930
 name: Zapier id: 952619897266008127
 name: Analyst id: 948741249710563340
 name: Forex Analyst id: 948741228055379998
 name: Crypto Analyst id: 948741197382438922
 name: Equities Analyst id: 948741161470795846
 name: Forex Trader id: 948741123323625512
-name: All Market Trader id: 948741086837350451
-name: Equities Trader id: 948741060664918118
 name: Long Term Investor id: 948741003500740618
 name: Crypto Trader id: 948740878736953404
+name: All Market Trader id: 948741086837350451
+name: Equities Trader id: 948741060664918118
 name: Staff - IT id: 931987348084891718
-name: Lead Admin id: 930161756892987403
 name: Analyst - Stocks/Options id: 925914586899693568
+name: Trialist id: 737038359490199573
 name: Server Booster id: 925848239612260383
-name: Fin id: 882498304150237224
 name: Lead Analyst id: 806029219548364813
 name: StockBot id: 737148440731189309
-name: Moderator id: 737064049283694653
 name: Subscriber id: 737038482165334027
-name: Trialist id: 737038359490199573
+name: Influencer id: 957087517876834344
+name: Moderator id: 737064049283694653
+name: Lead Admin id: 930161756892987403
 name: Shot Caller id: 737037992438399057
+name: SP Bot id: 976325168987271218
 name: MEE6 id: 737015889639112776
+name: DPB Payment Bot id: 966742522938396675
 --------------------
 name: social-media-posts id: 931985579216883823
-name: referral-links id: 948734048723951646
+name: 💵referral-links id: 948734048723951646
 name: Live-Trading/Education id: 736026749606953073
+name: 💬long-term-chat id: 819255329698480179
+name: 💬crypto-chat id: 806343544687296522
+name: 📝market-research id: 799472743614513182
+name: promotions id: 957060953265041489
+name: 🤓financial-literacy id: 737151329419657306
+name: 🔥crypto-alerts id: 813894561935917075
+name: assets id: 959275300422832138
+name: Influencers🤳 id: 970447650396725308
+name: Education id: 737151233818624070
+name: admin-trades id: 966804774131490886
+name: 👋welcome👋 id: 948600840250347560
+name: 📢disclaimer id: 737097678579564596
+name: history-of-logs-and-calls id: 934920766334582844
+name: Testing Area id: 930613098430230588
+name: 💰1000–account-challange id: 841663345173725204
+name: 👥member-intro id: 953345163344887888
+name: motivational-quotes id: 958540875158421525
+name: help🩺 id: 976184652094132244
+name: affiliates id: 966758326266384496
+name: 👀stocks-watchlist id: 737068062997479454
+name: 🥇roles id: 953863639310417980
+name: ⚠defi-alerts id: 898658264231858307
+name: blog id: 851964089236062219
+name: free-crypto-alerts id: 973930210963644477
+name: influencers-chat✅ id: 970447814121386024
+name: branding id: 851972507972141056
+name: website id: 848656489886777406
+name: 🤓crypto-analysis id: 838631054398718002
+name: 💬stocks-chat id: 737020152897339492
+name: General/Free Section id: 736026749606953070
+name: content id: 848656429186285630
+name: resources📚 id: 970453732590505984
+name: 🎤podcast id: 831348034192932865
+name: competitor-analysis id: 851973587191070781
+name: ⚡high-risk-alerts id: 877991953441103992
+name: Gold Picks - Equities 📈 id: 737150497059766373
+name: ftmo-challenge id: 958084564511780924
+name: 📚free-books id: 813245826776170496
+name: admin-chat id: 839252839708622858
+name: 📝macro-mornings id: 806119368534392894
+name: website-chat id: 931985525726928966
+name: Silver Picks - Forex 💹 id: 954007424271003678
+name: 📰proprietary-trend-model id: 941447285844344912
+name: 🗣meet-our-team id: 825406928795598910
+name: VC Meetings / Screen Share id: 805477590327754822
+name: twitter id: 851966718355046410
+name: training id: 848656571994210344
+name: testing-area-1 id: 930613133582680104
+name: 💹forex-alerts id: 926144110035890286
+name: simple-picks-revamp id: 917296722508673025
+name: 💬general-chat id: 736026749606953072
+name: 📊long-term-portfolio id: 779117099657461802
+name: 💬forex-chat id: 957813719474274404
+name: 🚨archived-options-alerts id: 798300753357832232
+name: 🔥stock-alerts id: 737017346056650902
+name: 💰testimonials id: 808421916209053726
+name: Gold Picks - Crypto 🤑 id: 838630082654371880
+name: 🦍high-risk-chat id: 838631906693873714
+name: Admins id: 839252773102419988
+name: Silver Picks - Long Term Investing 👩💻 id: 954105822244405308
+name: 🚨options-alerts id: 926130737940426803
+name: 📚resources id: 957815577810985011
+name: ❔faq id: 814680467873464350
+name: free-stock-alerts id: 973930328412553246
+--------------------
+Current channel: 🥇roles

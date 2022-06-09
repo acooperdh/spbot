@@ -115,8 +115,7 @@ class Picks(commands.Cog, name="picks-slash"):
         embed = disnake.Embed(
             title=f"{type} {ticker} @ {entry}",
             description=f"{type} {ticker} @ {entry} \n PT: {price_target} \n Risk: {risk*100}%\n Hold Time: {hold_time} \n{mental_stoploss} \n{actual_stoploss}",
-            color=0x00ff00
-        )
+            color=0x00ff00)
         await interaction.send(embed=embed)
         # Don't forget to remove "pass", that's just because there's no content
         # in the method.

@@ -59,8 +59,7 @@ class General(commands.Cog, name="general-slash"):
         embed.add_field(
             name="Prefix:",
             value=f"/ (Slash Commands) or {config['prefix']} for normal commands",
-            inline=False
-        )
+            inline=False)
         embed.set_footer(
             text=f"Requested by {interaction.author}"
         )
@@ -122,8 +121,7 @@ class General(commands.Cog, name="general-slash"):
         embed = disnake.Embed(
             title="🏓 Pong!",
             description=f"The bot latency is {round(self.bot.latency * 1000)}ms.",
-            color=0x9C84EF
-        )
+            color=0x9C84EF)
         await interaction.send(embed=embed)
 
     @commands.slash_command(
@@ -159,8 +157,7 @@ class General(commands.Cog, name="general-slash"):
         """
         embed = disnake.Embed(
             description=f"Join the support server for the bot by clicking [here](https://discord.gg/mTBrXyWxAF).",
-            color=0xD75BF4
-        )
+            color=0xD75BF4)
         try:
             await interaction.author.send(embed=embed)
             await interaction.send("I sent you a private message!")
@@ -215,8 +212,7 @@ class General(commands.Cog, name="general-slash"):
                     embed = disnake.Embed(
                         title="Error!",
                         description="There is something wrong with the API, please try again later",
-                        color=0xE02B2B
-                    )
+                        color=0xE02B2B)
                 await interaction.send(embed=embed)
 
     @commands.slash_command(
@@ -237,11 +233,27 @@ class General(commands.Cog, name="general-slash"):
         :param interaction: The application command interaction.
         :param question: The question that should be asked by the user.
         """
-        answers = ["It is certain.", "It is decidedly so.", "You may rely on it.", "Without a doubt.",
-                   "Yes - definitely.", "As I see, yes.", "Most likely.", "Outlook good.", "Yes.",
-                   "Signs point to yes.", "Reply hazy, try again.", "Ask again later.", "Better not tell you now.",
-                   "Cannot predict now.", "Concentrate and ask again later.", "Don't count on it.", "My reply is no.",
-                   "My sources say no.", "Outlook not so good.", "Very doubtful."]
+        answers = [
+            "It is certain.",
+            "It is decidedly so.",
+            "You may rely on it.",
+            "Without a doubt.",
+            "Yes - definitely.",
+            "As I see, yes.",
+            "Most likely.",
+            "Outlook good.",
+            "Yes.",
+            "Signs point to yes.",
+            "Reply hazy, try again.",
+            "Ask again later.",
+            "Better not tell you now.",
+            "Cannot predict now.",
+            "Concentrate and ask again later.",
+            "Don't count on it.",
+            "My reply is no.",
+            "My sources say no.",
+            "Outlook not so good.",
+            "Very doubtful."]
         embed = disnake.Embed(
             title="**My Answer:**",
             description=f"{random.choice(answers)}",
@@ -267,19 +279,18 @@ class General(commands.Cog, name="general-slash"):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://api.coindesk.com/v1/bpi/currentprice/BTC.json") as request:
                 if request.status == 200:
-                    data = await request.json(
-                        content_type="application/javascript")  # For some reason the returned content is of type JavaScript
+                    # For some reason the returned content is of type
+                    # JavaScript
+                    data = await request.json(content_type="application/javascript")
                     embed = disnake.Embed(
                         title="Bitcoin price",
                         description=f"The current price is {data['bpi']['USD']['rate']} :dollar:",
-                        color=0x9C84EF
-                    )
+                        color=0x9C84EF)
                 else:
                     embed = disnake.Embed(
                         title="Error!",
                         description="There is something wrong with the API, please try again later",
-                        color=0xE02B2B
-                    )
+                        color=0xE02B2B)
                 await interaction.send(embed=embed)
 
 

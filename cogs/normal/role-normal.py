@@ -61,21 +61,30 @@ class RoleSelect(disnake.ui.Select):
 
         options = [
             disnake.SelectOption(
-                label="Forex", description="Silver Picks - Forex Plan", emoji="💹", value=forex
-            ),
+                label="Forex",
+                description="Silver Picks - Forex Plan",
+                emoji="💹",
+                value=forex),
             disnake.SelectOption(
-                label="Long Term", description="Silver Picks - Long Term Plan", emoji="📆", value=lt
-            ),
+                label="Long Term",
+                description="Silver Picks - Long Term Plan",
+                emoji="📆",
+                value=lt),
             disnake.SelectOption(
-                label="Crypto", description="Gold Picks - Crypto Plan", emoji="👛", value=crypto
-            ),
+                label="Crypto",
+                description="Gold Picks - Crypto Plan",
+                emoji="👛",
+                value=crypto),
             disnake.SelectOption(
-                label="Equities", description="Gold Picks - Stocks Plan", emoji="📈", value=stock
-            ),
+                label="Equities",
+                description="Gold Picks - Stocks Plan",
+                emoji="📈",
+                value=stock),
             disnake.SelectOption(
-                label="Diamond", description="Diamond Picks", emoji="💎", value=diamond
-            )
-        ]
+                label="Diamond",
+                description="Diamond Picks",
+                emoji="💎",
+                value=diamond)]
 
         super().__init__(
             placeholder="Choose your plan!",

@@ -11,10 +11,9 @@ else:
 
 load_dotenv('.env')
 mongo_uri = os.getenv('MONGO_URI')
-client = pm.MongoClient(mongo_uri , serverSelectionTimeoutMS=100000)
+client = pm.MongoClient(mongo_uri, serverSelectionTimeoutMS=100000)
 db = client.get_database('SimplePicks')
 print(db.list_collection_names())
 
 users = db.Users
 print(users)
-
