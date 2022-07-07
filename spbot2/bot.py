@@ -37,6 +37,8 @@ bot = Bot(command_prefix=config["prefix"], intents=intents)
 bot.remove_command("help")
 
 # on_ready runs whenever the bot is running
+
+
 @bot.event
 async def on_ready() -> None:
     print(f"Logged in as {bot.user.name}\ndisnake API version: {disnake.__version__}\nPython version: {platform.python_version()}\nRunning on: {platform.system()} {platform.release()} {os.name}\n-----------------")
@@ -65,8 +67,3 @@ def load_commands(command_type: str) -> None:
 if __name__ == "__main__":
     load_commands("slash")
     load_commands("normal")
-
-
-
-
-

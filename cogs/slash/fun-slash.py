@@ -77,7 +77,8 @@ class RockPaperScissors(disnake.ui.Select):
 
         result_embed = disnake.Embed(color=0x9C84EF)
         result_embed.set_author(
-            name=interaction.author.display_name, icon_url=interaction.author.avatar.url)
+            name=interaction.author.display_name,
+            icon_url=interaction.author.avatar.url)
 
         if user_choice_index == bot_choice_index:
             result_embed.description = f"**That's a draw!**\nYou've chosen {user_choice} and I've chosen {bot_choice}."
@@ -133,8 +134,7 @@ class Fun(commands.Cog, name="fun-slash"):
                     embed = disnake.Embed(
                         title="Error!",
                         description="There is something wrong with the API, please try again later",
-                        color=0xE02B2B
-                    )
+                        color=0xE02B2B)
                 await interaction.send(embed=embed)
 
     @commands.slash_command(
@@ -158,13 +158,11 @@ class Fun(commands.Cog, name="fun-slash"):
             # User guessed correctly
             embed = disnake.Embed(
                 description=f"Correct! You guessed `{buttons.choice}` and I flipped the coin to `{result}`.",
-                color=0x9C84EF
-            )
+                color=0x9C84EF)
         else:
             embed = disnake.Embed(
                 description=f"Woops! You guessed `{buttons.choice}` and I flipped the coin to `{result}`, better luck next time!",
-                color=0xE02B2B
-            )
+                color=0xE02B2B)
         await interaction.edit_original_message(embed=embed, view=None)
 
     @commands.slash_command(

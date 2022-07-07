@@ -52,8 +52,7 @@ class Moderation(commands.Cog, name="moderation-normal"):
                 embed = disnake.Embed(
                     title="User Kicked!",
                     description=f"**{member}** was kicked by **{context.author}**!",
-                    color=0x9C84EF
-                )
+                    color=0x9C84EF)
                 embed.add_field(
                     name="Reason:",
                     value=reason
@@ -72,8 +71,7 @@ class Moderation(commands.Cog, name="moderation-normal"):
                 embed = disnake.Embed(
                     title="Error!",
                     description="An error occurred while trying to kick the user. Make sure my role is above the role of the user you want to kick.",
-                    color=0xE02B2B
-                )
+                    color=0xE02B2B)
                 await context.send(embed=embed)
 
     @commands.command(
@@ -128,8 +126,7 @@ class Moderation(commands.Cog, name="moderation-normal"):
                 embed = disnake.Embed(
                     title="User Banned!",
                     description=f"**{member}** was banned by **{context.author}**!",
-                    color=0x9C84EF
-                )
+                    color=0x9C84EF)
                 embed.add_field(
                     name="Reason:",
                     value=reason
@@ -146,8 +143,7 @@ class Moderation(commands.Cog, name="moderation-normal"):
             embed = disnake.Embed(
                 title="Error!",
                 description="An error occurred while trying to ban the user. Make sure my role is above the role of the user you want to ban.",
-                color=0xE02B2B
-            )
+                color=0xE02B2B)
             await context.send(embed=embed)
 
     @commands.command(
@@ -211,8 +207,7 @@ class Moderation(commands.Cog, name="moderation-normal"):
         embed = disnake.Embed(
             title="Chat Cleared!",
             description=f"**{context.author}** cleared **{len(purged_messages)}** messages!",
-            color=0x9C84EF
-        )
+            color=0x9C84EF)
         await context.send(embed=embed)
 
     @commands.command(
@@ -232,8 +227,7 @@ class Moderation(commands.Cog, name="moderation-normal"):
             embed = disnake.Embed(
                 title="User Banned!",
                 description=f"**{user} (ID: {user_id}) ** was banned by **{context.author}**!",
-                color=0x9C84EF
-            )
+                color=0x9C84EF)
             embed.add_field(
                 name="Reason:",
                 value=reason
@@ -243,8 +237,7 @@ class Moderation(commands.Cog, name="moderation-normal"):
             embed = disnake.Embed(
                 title="Error!",
                 description="An error occurred while trying to ban the user. Make sure ID is an existing ID that belongs to a user.",
-                color=0xE02B2B
-            )
+                color=0xE02B2B)
             await context.send(embed=embed)
 
 

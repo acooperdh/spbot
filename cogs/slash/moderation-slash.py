@@ -67,8 +67,7 @@ class Moderation(commands.Cog, name="moderation-slash"):
                 embed = disnake.Embed(
                     title="User Kicked!",
                     description=f"**{member}** was kicked by **{interaction.author}**!",
-                    color=0x9C84EF
-                )
+                    color=0x9C84EF)
                 embed.add_field(
                     name="Reason:",
                     value=reason
@@ -87,8 +86,7 @@ class Moderation(commands.Cog, name="moderation-slash"):
                 embed = disnake.Embed(
                     title="Error!",
                     description="An error occurred while trying to kick the user. Make sure my role is above the role of the user you want to kick.",
-                    color=0xE02B2B
-                )
+                    color=0xE02B2B)
                 await interaction.send(embed=embed)
 
     @commands.slash_command(
@@ -174,8 +172,7 @@ class Moderation(commands.Cog, name="moderation-slash"):
                 embed = disnake.Embed(
                     title="User Banned!",
                     description=f"**{member}** was banned by **{interaction.author}**!",
-                    color=0x9C84EF
-                )
+                    color=0x9C84EF)
                 embed.add_field(
                     name="Reason:",
                     value=reason
@@ -192,8 +189,7 @@ class Moderation(commands.Cog, name="moderation-slash"):
             embed = disnake.Embed(
                 title="Error!",
                 description="An error occurred while trying to ban the user. Make sure my role is above the role of the user you want to ban.",
-                color=0xE02B2B
-            )
+                color=0xE02B2B)
             await interaction.send(embed=embed)
 
     @commands.slash_command(
@@ -227,8 +223,7 @@ class Moderation(commands.Cog, name="moderation-slash"):
         embed = disnake.Embed(
             title="User Warned!",
             description=f"**{member}** was warned by **{interaction.author}**!",
-            color=0x9C84EF
-        )
+            color=0x9C84EF)
         embed.add_field(
             name="Reason:",
             value=reason
@@ -250,9 +245,7 @@ class Moderation(commands.Cog, name="moderation-slash"):
                 type=OptionType.integer,
                 required=True,
                 min_value=1,
-                max_value=100
-            )
-        ],
+                max_value=100)],
     )
     @commands.has_guild_permissions(manage_messages=True)
     async def purge(self, interaction: ApplicationCommandInteraction, amount: int) -> None:
@@ -266,8 +259,7 @@ class Moderation(commands.Cog, name="moderation-slash"):
         embed = disnake.Embed(
             title="Chat Cleared!",
             description=f"**{interaction.author}** cleared **{len(purged_messages)}** messages!",
-            color=0x9C84EF
-        )
+            color=0x9C84EF)
         await interaction.send(embed=embed)
 
     @commands.slash_command(
@@ -303,8 +295,7 @@ class Moderation(commands.Cog, name="moderation-slash"):
             embed = disnake.Embed(
                 title="User Banned!",
                 description=f"**{user} (ID: {user_id}) ** was banned by **{interaction.author}**!",
-                color=0x9C84EF
-            )
+                color=0x9C84EF)
             embed.add_field(
                 name="Reason:",
                 value=reason
@@ -314,8 +305,7 @@ class Moderation(commands.Cog, name="moderation-slash"):
             embed = disnake.Embed(
                 title="Error!",
                 description="An error occurred while trying to ban the user. Make sure ID is an existing ID that belongs to a user.",
-                color=0xE02B2B
-            )
+                color=0xE02B2B)
             await interaction.send(embed=embed)
             print(e)
 

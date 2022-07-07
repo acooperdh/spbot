@@ -168,6 +168,8 @@ async def remove_wrong_reaction(payload: disnake.RawReactionActionEvent) -> None
 
 # TODO: Move these events into their own class / file
 # makes more sense for code organization
+
+
 @bot.event
 async def on_raw_reaction_add(payload: disnake.RawReactionActionEvent) -> None:
     if payload.message_id != 955966311450685520:
@@ -205,8 +207,9 @@ async def on_raw_reaction_add(payload: disnake.RawReactionActionEvent) -> None:
             await remove_wrong_reaction(payload)
             print("role added")
         else:
-            print("user is not supposed to have this role, they are supposed to have anothe role " +
-                  user_data["discord_id"])
+            print(
+                "user is not supposed to have this role, they are supposed to have another role " +
+                user_data["discord_id"])
             channel = bot.get_channel(payload.channel_id)
             print("channel on removing reaction role")
             print(channel)
